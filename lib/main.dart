@@ -23,7 +23,7 @@ class _CalculatorState extends State<Calculator> {
   // Button Widget
   Widget calcbutton(String btntxt, Color btncolor, Color txtcolor) {
     return Container(
-      child: ElevatedButton(
+      child: TextButton(
         onPressed: () {
           calculation(btntxt);
         },
@@ -34,7 +34,7 @@ class _CalculatorState extends State<Calculator> {
             color: txtcolor,
           ),
         ),
-        style: ElevatedButton.styleFrom(
+        style: TextButton.styleFrom(
           shape: CircleBorder(),
           backgroundColor: btncolor,
           padding: EdgeInsets.all(20),
@@ -121,18 +121,21 @@ class _CalculatorState extends State<Calculator> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 // this is button Zero
-                ElevatedButton(
-                  onPressed: () {
-                    calculation('0');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    shape: StadiumBorder(),
-                    backgroundColor: Colors.blue[800],
-                    padding: EdgeInsets.fromLTRB(34, 20, 128, 20),
-                  ),
-                  child: Text(
-                    '0',
-                    style: TextStyle(fontSize: 35, color: Colors.white),
+                Container(
+                  width: 170, // Ancho del botón cero
+                  child: TextButton(
+                    onPressed: () {
+                      calculation('0');
+                    },
+                    style: TextButton.styleFrom(
+                      shape: StadiumBorder(),
+                      backgroundColor: Colors.blue[800],
+                      padding: EdgeInsets.fromLTRB(34, 20, 128, 20),
+                    ),
+                    child: Text(
+                      '0',
+                      style: TextStyle(fontSize: 35, color: Colors.white),
+                    ),
                   ),
                 ),
                 calcbutton('.', Colors.blue[800]!, Colors.white),
